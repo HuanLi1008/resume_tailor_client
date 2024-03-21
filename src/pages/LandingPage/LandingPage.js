@@ -1,8 +1,16 @@
-
+import { Link} from "react-router-dom";
+import "./LandingPage.scss";
 export default function LandingPage(){
     return (
-        <main>
-            <h1>Hello from Landing page!</h1>
+        <main className="main">
+            <div className="oval">
+                <h1 className="oval__title"> Welcom to Resume Tailor</h1>
+            </div>
+            <div className="pointer">
+                <div className="pointer__item"><Link>Create a Username</Link></div>
+                <div className="pointer__item"><Link>Upload Resume</Link></div>
+                <div className="pointer__item"><Link>Tailor Resume</Link></div>
+            </div>
         </main>
     )
 }
