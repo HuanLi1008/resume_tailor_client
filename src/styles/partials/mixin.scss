@@ -1,0 +1,21 @@
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin section-pading{
+    padding: 0 1rem;
+    @include tablet{
+        padding: 0 2.25rem;
+    }
+    @include desktop{
+        padding: 0 10vw;
+    }
+}
