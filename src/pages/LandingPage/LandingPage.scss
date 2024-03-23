@@ -37,3 +37,96 @@
         }
     }
 }
+.pointer{
+    display: flex;
+    position: relative;
+    top: 3.5rem;
+    justify-content: center;
+    @include tablet{
+        top: 5rem;
+    }
+    @include desktop{
+        top: 6.5rem;
+    }
+    &__item{
+        width: 20%;
+        height: 40px;
+        position: relative;
+        background: $Light-Color;
+        margin: 0 20px;
+        @include tablet{
+            height: 60px;
+            margin: 0 30px;
+        }
+        @include desktop{
+            height: 80px;
+            margin: 0 40px;
+        }
+        &:hover{
+            background-color: $Button-Color;
+            &::before{
+                border-left-color: $Button-Color;
+            }
+        }
+        &::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border-left: 20px solid $Primary-Color;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            @include tablet{
+                border-left-width: 30px;
+                border-top-width: 30px;
+                border-bottom-width: 30px;
+            }
+            @include desktop{
+                border-left-width: 40px;
+                border-top-width: 40px;
+                border-bottom-width: 40px;
+            }
+        }
+        &::before{
+            content: "";
+            position: absolute;
+            right: -20px;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border-left: 20px solid $Light-Color;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            
+            @include tablet{
+                right: -29px;
+                border-left-width: 30px;
+                border-top-width: 30px;
+                border-bottom-width: 30px;
+            }
+            @include desktop{
+                right: -40px;
+                border-left-width: 40px;
+                border-top-width: 40px;
+                border-bottom-width: 40px;
+            }
+        }
+        &--content{
+            
+           position: relative;
+           left: 20px;
+           top: 5px;
+           @include tablet{
+            left: 30%;
+            top: 30%;
+           }
+           @include desktop{
+            font-size:x-large;
+            left: 25%;
+            top: 35%;
+           }
+        }
+    }
+}

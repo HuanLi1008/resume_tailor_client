@@ -44,6 +44,9 @@
             color: black;
             border-radius: 20px;
             padding-top: 0.5rem;
+            &:hover{
+                background-color: $Button-Color;
+            }
         }
         
     }
