@@ -1,6 +1,6 @@
 @use "../../styles/partials/mixin.scss" as *;
 @use "../../styles/partials/variables.scss" as *;
-
+@use "../../styles/partials/media.scss" as *;
 .main{
     background-color: $Primary-Color;
     height: 100vh;
@@ -13,12 +13,27 @@
     height: 36vw;
     background: $Light-Color;
     border-radius: 35vw / 18vw;
+    @include desktop{
+        top: 4rem;
+        width: 44rem;
+        height: 22rem;
+        left: calc(50% - 22rem);
+        border-radius: 22rem / 11rem;
+    }
     &__title{
-        font-size: medium;
+        
         margin: 0;
         width: 80%;
         position: relative;
-        top: 15vw;
+        top: 10vw;
         left: 15vw;
+        @include tablet{
+            top: 15vw;
+            left: 20%;
+        }
+        @include desktop{
+            top: 10rem;
+            left: 20%;
+        }
     }
 }

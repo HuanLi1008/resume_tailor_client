@@ -5,11 +5,17 @@
 .nav-bar{
     background-color: $Dark-Color;
     height: 10rem;
-    // @include section-pading;
+    padding: 0 1rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    @include tablet{
+        padding: 0 2.25rem;
+    }
+    @include desktop{
+        padding: 0 10vw;
+    }
     &__logo{
         width: 100%;
         height: 4rem;
