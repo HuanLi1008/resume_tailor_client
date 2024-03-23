@@ -2,6 +2,8 @@ import Header from './components/Header/Header';
 import LandingPage from './pages/LandingPage/LandingPage';
 import ResumePage from './pages/ResumePage/ResumePage';
 import './App.scss';
+import './styles/partials/global.scss';
+
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 
 function App() {

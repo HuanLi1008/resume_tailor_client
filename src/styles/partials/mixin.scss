@@ -1,21 +1,66 @@
-@mixin tablet {
-  @media (min-width: 768px) {
-    @content;
-  }
+@use './font' as *;
+@use './variables' as *;
+
+@mixin mobile-page-header{
+    font-size: 24px;
+    line-height: 32px;
+    font-family: 'Avenir Next', sans-serif;
+    font-weight: 700;
+}
+@mixin mobile-section-header{
+    font-size: 12px;
+    line-height: 20px;
+    font-family: 'Avenir Next', sans-serif;
+    font-weight: 700;
+}
+@mixin mobile-subheader{
+    font-size: 13px;
+    line-height: 18px;
+    font-family: 'Avenir Next', sans-serif;
+    font-weight: 700;
+}
+@mixin mobile-body-copy{
+    font-size: 13px;
+    line-height: 18px;
+    font-family: 'Avenir Next', sans-serif;
+    font-weight: 400;
+}
+@mixin mobile-lable-button{
+    font-size: 10px;
+    line-height: 20px;
+    font-family: 'Avenir Next', sans-serif;
+    font-weight: 700;
+}
+@mixin desk-page-header{
+    font-size: 33px;
+    line-height: 44px;
+    font-family: 'Avenir Next', sans-serif;
+    font-weight: 700;
+}
+@mixin desk-section-header{
+    font-size: 12px;
+    line-height: 20px;
+    font-family: 'Avenir Next', sans-serif;
+    font-weight: 700;
+}
+@mixin desk-subheader{
+    font-size: 14px;
+    line-height: 22px;
+    font-family: 'Avenir Next', sans-serif;
+    font-weight: 700;
+}
+@mixin desk-body-copy{
+    font-size: 14px;
+    line-height: 22px;
+    font-family: 'Avenir Next', sans-serif;
+    font-weight: 400;
 }
 
-@mixin desktop {
-  @media (min-width: 1280px) {
-    @content;
-  }
+@mixin desk-lable-button{
+    font-size: 12px;
+    line-height: 20px;
+    font-family: 'Avenir Next', sans-serif;
+    font-weight: 700;
 }
 
-@mixin section-pading{
-    padding: 0 1rem;
-    @include tablet{
-        padding: 0 2.25rem;
-    }
-    @include desktop{
-        padding: 0 10vw;
-    }
-}
+

@@ -1,0 +1,66 @@
+@use './font.scss' as *;
+@use './media.scss' as *;
+@use './variables.scss' as *;
+@use './mixin.scss' as *;
+body{
+    margin: 0;
+    @include mobile-body-copy;
+    @include tablet{
+        @include desk-body-copy;
+    }
+}
+*{
+    box-sizing: border-box;
+}
+h1{
+    @include mobile-page-header;
+    @include tablet{
+        @include desk-page-header;
+    }
+}
+h2{
+    @include mobile-section-header;
+    @include tablet{
+        @include desk-section-header;
+    }
+}
+h3{
+    @include mobile-subheader;
+    @include tablet{
+        @include desk-subheader;
+    }
+}
+ul{
+    list-style: none;
+    
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+section{
+    margin: 1rem;
+    @include tablet{
+        margin: 2.25rem;
+    }
+    @include desktop{
+        margin: 2.25rem 10vw;        
+    }
+}
+button, label{
+    @include mobile-lable-button;
+    @include tablet{
+        @include desk-lable-button;
+    }
+}
+hr{
+    
+    border: 1px solid grey;
+    margin: 0;
+}
+.error{
+    height: 2.25rem;    
+    border: 2px solid red;
+    padding: 0.5rem;
+    border-radius: 4px;
+}

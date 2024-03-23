@@ -1,0 +1,24 @@
+@use "../../styles/partials/mixin.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+
+.main{
+    background-color: $Primary-Color;
+    height: 100vh;
+}
+.oval{
+    position: relative;
+    top: 2rem;
+    left: 15vw;
+    width: 70vw;
+    height: 36vw;
+    background: $Light-Color;
+    border-radius: 35vw / 18vw;
+    &__title{
+        font-size: medium;
+        margin: 0;
+        width: 80%;
+        position: relative;
+        top: 15vw;
+        left: 15vw;
+    }
+}
