@@ -5,6 +5,17 @@ export default function ResumeForm(){
     const [educationSection, setEducationSection] = useState([{"title": "", "subtitle": ""}]);
     const [experienceSection, setExperienceSection] = useState([{"title": "", "subtitle": "", "bullet_points": ""}]);
     const [projectSection, setProjectSection] = useState([{"title": "", "subtitle": "", "bullet_points": ""}]);
+    const handleAdd = (category, arr, setarr)=>{
+        let newItem = {};
+        if(category === "link"){
+            newItem={"link": ""};
+        }else if(category === "education"){
+            newItem={"title": "", "subtitle": ""};
+        }else{
+            newItem={"title": "", "subtitle": "", "bullet_points": ""};
+        }
+        setarr([...arr, newItem]);
+    }
     return(
         <section>
             <form className="resume-form">
@@ -41,7 +52,7 @@ export default function ResumeForm(){
                                         className="resume-form__input" required/>
                                 )
                             })}
-                            <button className="resume-form__btn">+ add link</button>
+                            <button className="resume-form__btn" onClick={()=> handleAdd("link", linkSection, setLinkSection)}>+ add link</button>
                         </div>
                     </div>
                     <label className="resume-form__label">
@@ -79,7 +90,7 @@ export default function ResumeForm(){
                         })}
 
                     </ul>
-                    <button className="resume-form__btn">+ add education</button>
+                    <button className="resume-form__btn" onClick={()=>handleAdd("education", educationSection, setEducationSection)}>+ add education</button>
                 </div>
                 <hr className="resume-form__bar--section"/>
                 <div className="resume-form__experience">
@@ -114,7 +125,7 @@ export default function ResumeForm(){
                         })}
 
                     </ul>
-                    <button className="resume-form__btn">+ add experience</button>
+                    <button className="resume-form__btn" onClick={()=>handleAdd("experience", experienceSection, setExperienceSection)}>+ add experience</button>
                 </div>
                 <div className="resume-form__project">
                     <h1 className="resume-form__title">project</h1>
@@ -148,7 +159,7 @@ export default function ResumeForm(){
                         })}
 
                     </ul>
-                    <button className="resume-form__btn">+ add project</button>
+                    <button className="resume-form__btn" onClick={()=>handleAdd("project", projectSection, setProjectSection)}>+ add project</button>
                 </div>
                 <button className="resume-form__btn--large" type="submit">Upload Resume</button>
             </form>
