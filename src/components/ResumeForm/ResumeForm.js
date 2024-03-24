@@ -3,8 +3,8 @@ import { useState } from "react"
 export default function ResumeForm(){
     const [linkSection, setLinkSection] = useState([{"link": ""}]);
     const [educationSection, setEducationSection] = useState([{"title": "", "subtitle": ""}]);
-    const [experienceSection, setExperienceSection] = useState([{"title": "", "subtitle": "", "bullet_points": ""}]);
-    const [projectSection, setProjectSection] = useState([{"title": "", "subtitle": "", "bullet_points": ""}]);
+    const [experienceSection, setExperienceSection] = useState([{"title": "", "subtitle": "", "bullet points": ""}]);
+    const [projectSection, setProjectSection] = useState([{"title": "", "subtitle": "", "bullet points": ""}]);
     const handleAdd = (category, arr, setarr)=>{
         let newItem = {};
         if(category === "link"){
@@ -12,9 +12,15 @@ export default function ResumeForm(){
         }else if(category === "education"){
             newItem={"title": "", "subtitle": ""};
         }else{
-            newItem={"title": "", "subtitle": "", "bullet_points": ""};
+            newItem={"title": "", "subtitle": "", "bullet points": ""};
         }
         setarr([...arr, newItem]);
+    }
+    const handleChange = (index, e, arr, setarr)=>{
+        const {name, value} = e.target;
+        const newArr = [...arr];
+        newArr[index][name] = value;
+        setarr(newArr);
     }
     return(
         <section>
@@ -47,8 +53,8 @@ export default function ResumeForm(){
                         <div id="link-list">
                             {linkSection.map((item, index)=>{
                                 return(
-                                    <input key={index + 1} name={`link${index + 1}`} placeholder={`link${index + 1}`} 
-                                        value={item.link}                                    
+                                    <input key={index + 1} name={`link`} placeholder={`link${index + 1}`} 
+                                        value={item.link} onChange={(e)=> handleChange(index, e, linkSection, setLinkSection)}                                   
                                         className="resume-form__input" required/>
                                 )
                             })}
@@ -74,14 +80,14 @@ export default function ResumeForm(){
                                     <h2 className="resume-form__subtitle">{`Education ${index + 1}: `}</h2>
                                     <label className="resume-form__label">
                                         title: 
-                                        <input name={`education-title${index}`} placeholder="title"
-                                            value={item.title}
+                                        <input name={`title`} placeholder="title"
+                                            value={item.title} onChange={(e)=> handleChange(index, e, educationSection, setEducationSection)}
                                             className="resume-form__input resume-form__input--medium" required/>
                                     </label>
                                     <label className="resume-form__label">
                                         subtitle: 
-                                        <input name={`education-subtitle${index}`} placeholder="subtitle"
-                                            value={item.subtitle}
+                                        <input name={`subtitle`} placeholder="subtitle"
+                                            value={item.subtitle} onChange={(e)=> handleChange(index, e, educationSection, setEducationSection)}
                                             className="resume-form__input resume-form__input--medium" required/>
                                     </label>
                                 </li>
@@ -103,20 +109,20 @@ export default function ResumeForm(){
                                     <h2 className="resume-form__subtitle">{`Experience ${index + 1}: `}</h2>
                                     <label className="resume-form__label">
                                         title: 
-                                        <input name={`experience-title${index}`} placeholder="title"
-                                            value={item.title}
+                                        <input name={`title`} placeholder="title"
+                                            value={item.title} onChange={(e)=> handleChange(index, e, experienceSection, setExperienceSection)}
                                             className="resume-form__input resume-form__input--medium" required/>
                                     </label>
                                     <label className="resume-form__label">
                                         subtitle: 
-                                        <input name={`experience-subtitle${index}`} placeholder="subtitle"
-                                            value={item.subtitle}
+                                        <input name={`subtitle`} placeholder="subtitle"
+                                            value={item.subtitle} onChange={(e)=> handleChange(index, e, experienceSection, setExperienceSection)}
                                             className="resume-form__input resume-form__input--medium" required/>
                                     </label>
                                     <label className="resume-form__label">
                                         bullet points: 
-                                        <textarea name={`experience-bullet_points${index}`} placeholder="bullet points"
-                                            value={item.bullet_points}
+                                        <textarea name={`bullet points`} placeholder="bullet points"
+                                            value={item["bullet points"]} onChange={(e)=> handleChange(index, e, experienceSection, setExperienceSection)}
                                             className="resume-form__input resume-form__input--large" required/>
                                     </label>
                                 </li>
@@ -137,20 +143,20 @@ export default function ResumeForm(){
                                     <h2 className="resume-form__subtitle">{`project ${index + 1}: `}</h2>
                                     <label className="resume-form__label">
                                         title: 
-                                        <input name={`project-title${index}`} placeholder="title"
-                                            value={item.title}
+                                        <input name={`title`} placeholder="title"
+                                            value={item.title} onChange={(e)=> handleChange(index, e, projectSection, setProjectSection)}
                                             className="resume-form__input resume-form__input--medium" required/>
                                     </label>
                                     <label className="resume-form__label">
                                         subtitle: 
-                                        <input name={`project-subtitle${index}`} placeholder="subtitle"
-                                            value={item.subtitle}
+                                        <input name={`subtitle`} placeholder="subtitle"
+                                            value={item.subtitle} onChange={(e)=> handleChange(index, e, projectSection, setProjectSection)}
                                             className="resume-form__input resume-form__input--medium" required/>
                                     </label>
                                     <label className="resume-form__label">
                                         bullet points: 
-                                        <textarea name={`project-bullet_points${index}`} placeholder="bullet points"
-                                            value={item.bullet_points}
+                                        <textarea name={`bullet points`} placeholder="bullet points"
+                                            value={item["bullet points"]} onChange={(e)=> handleChange(index, e, projectSection, setProjectSection)}
                                             className="resume-form__input resume-form__input--large" required/>
                                     </label>
                                 </li>
