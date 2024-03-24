@@ -5,6 +5,8 @@ import './App.scss';
 import './styles/partials/global.scss';
 
 import { BrowserRouter, Routes, Route} from "react-router-dom";
+import CreateUserPage from './pages/CreateUserPage/CreateUserPage';
+import TailorPage from './pages/TailorPage/TailorPage';
 
 function App() {
   return (
@@ -13,7 +15,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path='/user' element={<CreateUserPage />}/>
           <Route path="/resume" element={<ResumePage />} />
+          <Route path='/tailor' element={<TailorPage />}/>
         </Routes>
         
       </BrowserRouter>
