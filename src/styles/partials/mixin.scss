@@ -65,19 +65,19 @@
 
 @mixin button-effect{
     height: 2.25rem;
-        width: 100%;
-        background-color: $Button-Color;
-        border-radius: 20px;
-        font-size: large;
-        color: #fff;
-        @include tablet{
-            width: 10rem;
-            // margin-left: 5rem;
-            margin-top: 1rem;
-        }
-        &:hover{
-            background-color: $Dark-Color;
-            cursor: pointer;
-        }
+    width: 100%;
+    background-color: $Button-Color;
+    border-radius: 20px;
+    font-size: large;
+    color: #fff;
+    @include tablet{
+        width: 10rem;
+        
+        margin-top: 1rem;
+    }
+    &:hover{
+        background-color: $Dark-Color;
+        cursor: pointer;
+    }
 }
 
