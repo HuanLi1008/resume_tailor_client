@@ -3,6 +3,7 @@ import "./ResumePage.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ResumeForm from "../../components/ResumeForm/ResumeForm";
+import DisplayResume from "../../components/DisplayResume/DisplayResume";
 export default function ResumePage(){
     const [resumedata, setResumedata] = useState(null);
     const user_id = localStorage.getItem("user_id");
@@ -34,10 +35,8 @@ export default function ResumePage(){
     }
     if(!resumedata){
         return <ResumeForm />;
+    }else{
+        return <DisplayResume data={resumedata}/>
     }
-    return(
-        <main>
-            "This is resume page"
-        </main>
-    )
+    
 }

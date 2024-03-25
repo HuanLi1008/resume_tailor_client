@@ -2,6 +2,7 @@ import axios from "axios";
 import "./CreateUserPage.scss";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import swal from "sweetalert";
 export default function CreateUserPage(){
     const [isValid, setIsValid] = useState(true);
     const navigate = useNavigate();
@@ -18,9 +19,12 @@ export default function CreateUserPage(){
                 const response = await axios.post(url + "/api/user", {username: e.target.username.value});
             
                 localStorage.setItem("user_id", response.data.id);
-                navigate("/resume");
+                swal("Successfully Create Username", "Go upload your resume", "success")
+                .then(navigate("/resume"));
+                
             } catch (error) {
                 console.error("Can not create user: ", error);
+                swal("Oops", "Fail to post your resume. Try again later", "error");
             }
             
         }
