@@ -1,5 +1,5 @@
-import { useState } from "react"
-
+import { useState } from "react";
+import "./ResumeForm.scss";
 export default function ResumeForm(){
     const [linkSection, setLinkSection] = useState([{"link": ""}]);
     const [educationSection, setEducationSection] = useState([{"title": "", "subtitle": ""}]);
@@ -23,7 +23,7 @@ export default function ResumeForm(){
         setarr(newArr);
     }
     return(
-        <section>
+        <section className="resume">
             <form className="resume-form">
                 <div className="resume-form__info">
                     <h1 className="resume-form__title">Basic Info</h1>
@@ -49,23 +49,24 @@ export default function ResumeForm(){
                         </label>
                     </div>
                     <div className="resume-form__link">
-                        <label className="resume-form__label" htmlFor="link-list">Links: </label>
+                        <label className="resume-form__label resume-form__label--link" htmlFor="link1">Links:</label>
                         <div id="link-list">
                             {linkSection.map((item, index)=>{
                                 return(
-                                    <input key={index + 1} name={`link`} placeholder={`link${index + 1}`} 
+                                    <input id={`link${index + 1}`}  key={index + 1} name={`link`} placeholder={`link${index + 1}`} 
                                         value={item.link} onChange={(e)=> handleChange(index, e, linkSection, setLinkSection)}                                   
                                         className="resume-form__input" required/>
                                 )
                             })}
                             <button className="resume-form__btn" onClick={()=> handleAdd("link", linkSection, setLinkSection)}>+ add link</button>
                         </div>
+                        
                     </div>
-                    <label className="resume-form__label">
+                    <label className="resume-form__label resume-form__label--large">
                             Summary: 
                         <textarea id="summary" name="summary" placeholder="summary"  className="resume-form__input resume-form__input--large" required/>
                     </label>
-                    <label className="resume-form__label">
+                    <label className="resume-form__label resume-form__label--large">
                             skills: 
                         <textarea id="skills" name="skills" placeholder="skills"  className="resume-form__input resume-form__input--large" required/>
                     </label>
@@ -119,7 +120,7 @@ export default function ResumeForm(){
                                             value={item.subtitle} onChange={(e)=> handleChange(index, e, experienceSection, setExperienceSection)}
                                             className="resume-form__input resume-form__input--medium" required/>
                                     </label>
-                                    <label className="resume-form__label">
+                                    <label className="resume-form__label resume-form__label--large">
                                         bullet points: 
                                         <textarea name={`bullet points`} placeholder="bullet points"
                                             value={item["bullet points"]} onChange={(e)=> handleChange(index, e, experienceSection, setExperienceSection)}
@@ -153,7 +154,7 @@ export default function ResumeForm(){
                                             value={item.subtitle} onChange={(e)=> handleChange(index, e, projectSection, setProjectSection)}
                                             className="resume-form__input resume-form__input--medium" required/>
                                     </label>
-                                    <label className="resume-form__label">
+                                    <label className="resume-form__label resume-form__label--large">
                                         bullet points: 
                                         <textarea name={`bullet points`} placeholder="bullet points"
                                             value={item["bullet points"]} onChange={(e)=> handleChange(index, e, projectSection, setProjectSection)}
@@ -167,7 +168,7 @@ export default function ResumeForm(){
                     </ul>
                     <button className="resume-form__btn" onClick={()=>handleAdd("project", projectSection, setProjectSection)}>+ add project</button>
                 </div>
-                <button className="resume-form__btn--large" type="submit">Upload Resume</button>
+                <button className="resume-form__btn resume-form__btn--large" type="submit">Upload Resume</button>
             </form>
         </section>
     )
