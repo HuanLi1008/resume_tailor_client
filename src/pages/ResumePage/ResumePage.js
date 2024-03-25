@@ -34,7 +34,7 @@ export default function ResumePage(){
         )
     }
     if(!resumedata){
-        return <ResumeForm />;
+        return <ResumeForm setResumeData={setResumedata}/>;
     }else{
         return <DisplayResume data={resumedata}/>
     }
