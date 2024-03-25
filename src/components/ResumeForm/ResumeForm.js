@@ -1,10 +1,11 @@
 import { useState } from "react";
 import "./ResumeForm.scss";
+import axios from "axios";
 export default function ResumeForm(){
     const [linkSection, setLinkSection] = useState([{"link": ""}]);
     const [educationSection, setEducationSection] = useState([{"title": "", "subtitle": ""}]);
-    const [experienceSection, setExperienceSection] = useState([{"title": "", "subtitle": "", "bullet points": ""}]);
-    const [projectSection, setProjectSection] = useState([{"title": "", "subtitle": "", "bullet points": ""}]);
+    const [experienceSection, setExperienceSection] = useState([{"title": "", "subtitle": "", "bullet_points": ""}]);
+    const [projectSection, setProjectSection] = useState([{"title": "", "subtitle": "", "bullet_points": ""}]);
     const handleAdd = (category, arr, setarr)=>{
         let newItem = {};
         if(category === "link"){
@@ -12,7 +13,7 @@ export default function ResumeForm(){
         }else if(category === "education"){
             newItem={"title": "", "subtitle": ""};
         }else{
-            newItem={"title": "", "subtitle": "", "bullet points": ""};
+            newItem={"title": "", "subtitle": "", "bullet_points": ""};
         }
         setarr([...arr, newItem]);
     }
@@ -22,9 +23,38 @@ export default function ResumeForm(){
         newArr[index][name] = value;
         setarr(newArr);
     }
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        const postData = async()=>{
+            const {name, role, phone_number, email, summary, skills} = e.target;
+            const newResume = {
+                name: name.value, 
+                role: role.value, 
+                phone_number: phone_number.value,
+                email: email.value,
+                summary: summary.value,
+                skills: skills.value,
+                links: linkSection,
+                educations: educationSection,
+                experiences: experienceSection,
+                projects: projectSection,
+            }
+            console.log(newResume)
+            try {
+                const url = process.env.REACT_APP_API_URL;
+                const user_id = localStorage.getItem("user_id");
+                const response = await axios.post(`${url}/api/resume/${user_id}`, newResume);
+                console.log(response.data);
+            } catch (error) {
+                console.log("Can not post resume: ", error);
+            }
+            
+        }
+        postData();
+    }
     return(
         <section className="resume">
-            <form className="resume-form">
+            <form className="resume-form" onSubmit={handleSubmit}>
                 <div className="resume-form__info">
                     <h1 className="resume-form__title">Basic Info</h1>
                     <hr className="resume-form__bar"/>
@@ -122,8 +152,8 @@ export default function ResumeForm(){
                                     </label>
                                     <label className="resume-form__label resume-form__label--large">
                                         bullet points: 
-                                        <textarea name={`bullet points`} placeholder="bullet points"
-                                            value={item["bullet points"]} onChange={(e)=> handleChange(index, e, experienceSection, setExperienceSection)}
+                                        <textarea name={`bullet_points`} placeholder="bullet points"
+                                            value={item["bullet_points"]} onChange={(e)=> handleChange(index, e, experienceSection, setExperienceSection)}
                                             className="resume-form__input resume-form__input--large" required/>
                                     </label>
                                 </li>
@@ -156,8 +186,8 @@ export default function ResumeForm(){
                                     </label>
                                     <label className="resume-form__label resume-form__label--large">
                                         bullet points: 
-                                        <textarea name={`bullet points`} placeholder="bullet points"
-                                            value={item["bullet points"]} onChange={(e)=> handleChange(index, e, projectSection, setProjectSection)}
+                                        <textarea name={`bullet_points`} placeholder="bullet points"
+                                            value={item["bullet_points"]} onChange={(e)=> handleChange(index, e, projectSection, setProjectSection)}
                                             className="resume-form__input resume-form__input--large" required/>
                                     </label>
                                 </li>
