@@ -3,7 +3,11 @@
 export default function DisplayResume({ data }) {
 
   const {name, role, phone_number, email, summary, skills, links, educations, experiences, projects} = data;
-  
+  const splitBulletPoints = (points)=>{
+    const arr = points.split("\\n");
+    // console.log(typeof(points));
+    return arr;
+  }
   return (
     <section className="resume">
       <h1 className="resume__title"> My Resume</h1>
@@ -41,20 +45,24 @@ export default function DisplayResume({ data }) {
                         <div key={index}>
                             <h2>{item.title}</h2>
                             <p>{item.subtitle}</p>
-                            <p>{item.bullet_points}</p>
+                            {splitBulletPoints(item.bullet_points).map((point, i) =>{
+                                return <p key={i}>{point}</p>
+                            })}
                         </div>
                     )
                 })}
             </div>
             <div className="resume__project">
-            <h1 className="resume__title">Experience</h1>
+                <h1 className="resume__title">Project</h1>
                 <hr className="resume__divid-bar" />
                 {projects.map((item, index)=>{
                     return(
                         <div key={index}>
                             <h2>{item.title}</h2>
                             <p>{item.subtitle}</p>
-                            <p>{item.bullet_points}</p>
+                            {splitBulletPoints(item.bullet_points).map((point, i) =>{
+                                return <p key={i}>{point}</p>
+                            })}
                         </div>
                     )
                 })}

@@ -2,15 +2,14 @@ import { useState } from "react";
 import "./ResumeForm.scss";
 import axios from "axios";
 import swal from "sweetalert";
-import DisplayResume from "../DisplayResume/DisplayResume";
-import { useNavigate } from "react-router-dom";
+
 
 export default function ResumeForm({setResumeData}){
     const [linkSection, setLinkSection] = useState([{"link": ""}]);
     const [educationSection, setEducationSection] = useState([{"title": "", "subtitle": ""}]);
     const [experienceSection, setExperienceSection] = useState([{"title": "", "subtitle": "", "bullet_points": ""}]);
     const [projectSection, setProjectSection] = useState([{"title": "", "subtitle": "", "bullet_points": ""}]);
-    const navigate = useNavigate();
+    
     const handleAdd = (category, arr, setarr)=>{
         let newItem = {};
         if(category === "link"){
