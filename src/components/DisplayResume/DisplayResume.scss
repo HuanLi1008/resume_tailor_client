@@ -1,0 +1,26 @@
+@use "../../styles/partials/media.scss" as *;
+@use "../../styles/partials/mixin.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+
+.resume{
+    &__title{
+        margin: 0;
+        padding: 1rem;
+        padding-bottom: 0;
+        text-transform: uppercase;
+    }
+    &__content{
+        padding: 0 1rem;
+        margin:  0;
+    }
+    &__subtitle{
+        padding: 0 1rem;
+        &--small{
+            padding-bottom: 1rem;
+        }
+    }
+    
+    &__divid-bar{
+        margin: 1rem 0;
+    }
+}

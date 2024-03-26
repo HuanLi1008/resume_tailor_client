@@ -1,11 +1,11 @@
-
+import "./DisplayResume.scss";
 
 export default function DisplayResume({ data }) {
 
   const {name, role, phone_number, email, summary, skills, links, educations, experiences, projects} = data;
   const splitBulletPoints = (points)=>{
     const arr = points.split("\\n");
-    // console.log(typeof(points));
+    
     return arr;
   }
   return (
@@ -16,14 +16,14 @@ export default function DisplayResume({ data }) {
             <div className="resume__info">
                 <h1 className="resume__title">{`${name} | ${role}`}</h1>
                 <hr className="resume__divid-bar" />
-                <p>{phone_number + " | " + email}</p>
+                <h2 className="resume__subtitle">{phone_number + " | " + email}</h2>
                 {links.map((link, index)=>{
-                    return (<p key={index}>{link.link}</p>)
+                    return (<p className="resume__content" key={index}>{link.link}</p>)
                 })}
-                <h2>Summary:</h2>
-                <p>{summary}</p>
-                <h2>Skills: </h2>
-                <p>{skills}</p>
+                <h2 className="resume__subtitle">Summary:</h2>
+                <p className="resume__content">{summary}</p>
+                <h2 className="resume__subtitle">Skills: </h2>
+                <p className="resume__content">{skills}</p>
             </div>
             <div className="resume__education">
                 <h1 className="resume__title">Education</h1>
@@ -31,8 +31,8 @@ export default function DisplayResume({ data }) {
                 {educations.map((item, index)=>{
                     return(
                         <div key={index}>
-                            <h2>{item.title}</h2>
-                            <p>{item.subtitle}</p>
+                            <h2 className="resume__subtitle">{item.title}</h2>
+                            <p className="resume__content">{item.subtitle}</p>
                         </div>
                     )
                 })}
@@ -43,10 +43,10 @@ export default function DisplayResume({ data }) {
                 {experiences.map((item, index)=>{
                     return(
                         <div key={index}>
-                            <h2>{item.title}</h2>
-                            <p>{item.subtitle}</p>
+                            <h2 className="resume__subtitle">{item.title}</h2>
+                            <p className="resume__content resume__subtitle--small">{item.subtitle}</p>
                             {splitBulletPoints(item.bullet_points).map((point, i) =>{
-                                return <p key={i}>{point}</p>
+                                return <p className="resume__content" key={i}>{point}</p>
                             })}
                         </div>
                     )
@@ -58,10 +58,10 @@ export default function DisplayResume({ data }) {
                 {projects.map((item, index)=>{
                     return(
                         <div key={index}>
-                            <h2>{item.title}</h2>
-                            <p>{item.subtitle}</p>
+                            <h2 className="resume__subtitle">{item.title}</h2>
+                            <p className="resume__content resume__subtitle--small">{item.subtitle}</p>
                             {splitBulletPoints(item.bullet_points).map((point, i) =>{
-                                return <p key={i}>{point}</p>
+                                return <p className="resume__content" key={i}>{point}</p>
                             })}
                         </div>
                     )
