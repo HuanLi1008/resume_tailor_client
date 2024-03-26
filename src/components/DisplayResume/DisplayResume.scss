@@ -9,6 +9,15 @@
         padding-bottom: 0;
         text-transform: uppercase;
     }
+    &__body{
+        display: flex;
+        flex-wrap: wrap;
+        & > *{
+            @include tablet{
+                width: 50%;
+            }
+        }
+    }
     &__content{
         padding: 0 1rem;
         margin:  0;
@@ -22,5 +31,23 @@
     
     &__divid-bar{
         margin: 1rem 0;
+        @include tablet{
+            display: none;
+        }
+        &--section{
+            display: none;
+            @include tablet{
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+    &__btn{
+        @include button-effect;
+        width: calc(100% - 2rem);
+        margin: 1rem;
+        @include tablet{
+            margin-left: calc(50% - 5rem);
+        }
     }
 }

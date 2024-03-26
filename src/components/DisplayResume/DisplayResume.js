@@ -37,6 +37,7 @@ export default function DisplayResume({ data }) {
                     )
                 })}
             </div>
+            <hr className="resume__divid-bar--section"/>
             <div className="resume__experience">
                 <h1 className="resume__title">Experience</h1>
                 <hr className="resume__divid-bar" />
@@ -68,6 +69,7 @@ export default function DisplayResume({ data }) {
                 })}
             </div>
       </div>
+      <button className="resume__btn">Edit Resume</button>
     </section>
   );
 }
