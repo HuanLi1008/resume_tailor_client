@@ -1,4 +1,4 @@
-
+import "./KeywordsPanel.scss";
 export default function KeywordsPanel({keywords}){
 
     return(

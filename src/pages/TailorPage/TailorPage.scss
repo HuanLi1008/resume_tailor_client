@@ -3,7 +3,7 @@
 .tailor{
     background-color: $Light-Color;
     margin-top: 0;
-    height: 100vh;
+    
     &__title{
         margin: 0;
         padding: 1rem;
@@ -13,6 +13,22 @@
         }
         @include desktop{
             padding: 1rem 4rem;
+        }
+    }
+    &__body{
+        padding-bottom: 1rem;
+        &--wide{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            @include desktop{
+                .keywords{
+                    width: 30%;
+                }
+                & > .resume{
+                    width: 69%;
+                }
+            }
         }
     }
 }

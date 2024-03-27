@@ -1,0 +1,26 @@
+@use "../../styles/partials/media.scss" as *;
+
+.keywords{
+    &__title{
+        font-size: large;
+        text-align: center;
+    }
+    &__box{
+        background-color: whitesmoke;
+        width: 70%;
+        padding: 1rem;
+        margin: 1rem auto;
+        display: flex;
+        flex-wrap: wrap;
+        border-radius: 10px;
+        border: 1px solid black;
+    }
+    &__item{
+        font-weight: 600;
+        font-size: large;
+        margin: 0 0.5rem;
+        &::before{
+            content: "• ";
+        }
+    }
+}

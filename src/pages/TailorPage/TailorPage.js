@@ -66,7 +66,7 @@ export default function TailorPage(){
     return(
         <main className="tailor">
             <h1 className="tailor__title">Let's Tailor your Resume</h1>
-            <div className="tailor__body">
+            <div className={tailoring ? "tailor__body--wide" : "tailor__body"}>
                 {tailoring ? <KeywordsPanel keywords={tailoredData.keywords}/> : <JDinput handleSubmit={handleSubmit}/>}
                 {tailoring && <hr className="tailor__divid-bar"/>}
                 {tailoring && <DisplayResume data={tailoredData.resume} header={"Tailored Resume"}/>}
