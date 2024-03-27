@@ -7,13 +7,16 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 export default function TailorPage(){
     const [tailoring, setTailoring] = useState(false);
+    const [hasResume, setHasResume] = useState(false);
+    const [tailoredResume, setTailoredResume] = useState(null);
 
     const user_id = localStorage.getItem("user_id");
-    const [hasResume, setHasResume] = useState(false);
+    
+    const url = process.env.REACT_APP_API_URL;
     useEffect(()=>{
         if(!user_id) return;
         const fetchResume = async()=>{
-            const url = process.env.REACT_APP_API_URL;
+            
             try {
                 const response = await axios.get(url+"/api/resume/" + user_id);
                 if(response.data.message !== "no resume"){
@@ -26,7 +29,7 @@ export default function TailorPage(){
             }
         }
         fetchResume();
-    })
+    },[])
     if(user_id === null){
         return(
             <section>
@@ -44,14 +47,29 @@ export default function TailorPage(){
         )
     }
 
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        const fetchData = async()=>{
+            try {
+                console.log(e.target.jd.value);
+                const response = await axios.post(`${url}/api/tailor/${user_id}`, {"jd": e.target.jd.value});
+                
+                setTailoredResume(response.data.resume);
+                setTailoring(true);
+            } catch (error) {
+                console.error("Can not tailor resume: ", error);
+            }
+        }
+        fetchData();
+    }
 
     return(
         <section className="tailor">
             <h1 className="tailor__title">Let's Tailor your Resume</h1>
             <div className="tailor__body">
-                {tailoring ? <KeywordsPanel /> : <JDinput />}
+                {tailoring ? <KeywordsPanel /> : <JDinput handleSubmit={handleSubmit}/>}
                 {tailoring && <hr className="tailor__divid-bar"/>}
-                {tailoring && <DisplayResume />}
+                {tailoring && <DisplayResume data={tailoredResume}/>}
             </div>
         </section>
     )
