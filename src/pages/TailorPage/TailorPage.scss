@@ -1,0 +1,18 @@
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/media.scss" as *;
+.tailor{
+    background-color: $Light-Color;
+    margin-top: 0;
+    height: 100vh;
+    &__title{
+        margin: 0;
+        padding: 1rem;
+        text-align: center;
+        @include tablet{
+            padding: 1rem 2.25rem;
+        }
+        @include desktop{
+            padding: 1rem 4rem;
+        }
+    }
+}

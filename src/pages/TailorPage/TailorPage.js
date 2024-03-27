@@ -50,7 +50,7 @@ export default function TailorPage(){
             <h1 className="tailor__title">Let's Tailor your Resume</h1>
             <div className="tailor__body">
                 {tailoring ? <KeywordsPanel /> : <JDinput />}
-                <hr className="tailor__divid-bar"/>
+                {tailoring && <hr className="tailor__divid-bar"/>}
                 {tailoring && <DisplayResume />}
             </div>
         </section>

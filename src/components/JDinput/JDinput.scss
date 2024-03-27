@@ -1,0 +1,41 @@
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/media.scss" as *;
+@use "../../styles/partials/mixin.scss" as *;
+.job-description{
+    padding: 0 1rem;
+    @include tablet{
+        padding: 0 2.25rem;
+    }
+    @include desktop{
+        padding: 0 4rem;
+    }
+    &__title{
+        font-size: large;
+        margin: 0;
+        text-align: center;
+    }
+    &__input{
+        display: block;
+        width: 100%;
+        height: 8rem;
+        margin: 1rem auto;
+        padding: 1rem;
+        border-radius: 10px;
+        @include tablet{
+            
+            width: 70%;
+            height: calc(21vw - 1.05rem);
+        }
+        @include desktop{
+            
+            width: 80%;
+            height: calc(24vw - 1.2rem);
+        }
+    }
+    &__btn{
+        @include button-effect;
+        display: block;
+        
+        margin: 1rem auto;
+    }
+}
