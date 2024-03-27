@@ -8,7 +8,7 @@ import axios from "axios";
 export default function TailorPage(){
     const [tailoring, setTailoring] = useState(false);
     const [hasResume, setHasResume] = useState(false);
-    const [tailoredResume, setTailoredResume] = useState(null);
+    const [tailoredData, setTailoredData] = useState(null);
 
     const user_id = localStorage.getItem("user_id");
     
@@ -54,7 +54,7 @@ export default function TailorPage(){
                 
                 const response = await axios.post(`${url}/api/tailor/${user_id}`, {"jd": e.target.jd.value});
                 
-                setTailoredResume(response.data.resume);
+                setTailoredData(response.data);
                 setTailoring(true);
             } catch (error) {
                 console.error("Can not tailor resume: ", error);
@@ -67,9 +67,9 @@ export default function TailorPage(){
         <main className="tailor">
             <h1 className="tailor__title">Let's Tailor your Resume</h1>
             <div className="tailor__body">
-                {tailoring ? <KeywordsPanel /> : <JDinput handleSubmit={handleSubmit}/>}
+                {tailoring ? <KeywordsPanel keywords={tailoredData.keywords}/> : <JDinput handleSubmit={handleSubmit}/>}
                 {tailoring && <hr className="tailor__divid-bar"/>}
-                {tailoring && <DisplayResume data={tailoredResume} header={"Tailored Resume"}/>}
+                {tailoring && <DisplayResume data={tailoredData.resume} header={"Tailored Resume"}/>}
             </div>
         </main>
     )
