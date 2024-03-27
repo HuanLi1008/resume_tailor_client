@@ -51,7 +51,7 @@ export default function TailorPage(){
         e.preventDefault();
         const fetchData = async()=>{
             try {
-                console.log(e.target.jd.value);
+                
                 const response = await axios.post(`${url}/api/tailor/${user_id}`, {"jd": e.target.jd.value});
                 
                 setTailoredResume(response.data.resume);
@@ -64,13 +64,13 @@ export default function TailorPage(){
     }
 
     return(
-        <section className="tailor">
+        <main className="tailor">
             <h1 className="tailor__title">Let's Tailor your Resume</h1>
             <div className="tailor__body">
                 {tailoring ? <KeywordsPanel /> : <JDinput handleSubmit={handleSubmit}/>}
                 {tailoring && <hr className="tailor__divid-bar"/>}
-                {tailoring && <DisplayResume data={tailoredResume}/>}
+                {tailoring && <DisplayResume data={tailoredResume} header={"Tailored Resume"}/>}
             </div>
-        </section>
+        </main>
     )
 }

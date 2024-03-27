@@ -34,9 +34,17 @@ export default function ResumePage(){
         )
     }
     if(!resumedata){
-        return <ResumeForm setResumeData={setResumedata}/>;
+        return( 
+            <main>
+                <ResumeForm setResumeData={setResumedata}/>
+            </main>
+        )
     }else{
-        return <DisplayResume data={resumedata}/>
+        return(
+            <main>
+                <DisplayResume data={resumedata} header={"my resume"}/>
+            </main>
+        ) 
     }
     
 }

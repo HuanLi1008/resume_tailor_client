@@ -1,6 +1,6 @@
 import "./DisplayResume.scss";
 
-export default function DisplayResume({ data }) {
+export default function DisplayResume({ data, header }) {
 
   const {name, role, phone_number, email, summary, skills, links, educations, experiences, projects} = data;
   const splitBulletPoints = (points)=>{
@@ -10,7 +10,7 @@ export default function DisplayResume({ data }) {
   }
   return (
     <section className="resume">
-      <h1 className="resume__title"> My Resume</h1>
+      <h1 className="resume__title resume__title--page"> {header}</h1>
       <hr className="resume__divid-bar" />
       <div className="resume__body">
             <div className="resume__info">
