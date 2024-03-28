@@ -37,7 +37,11 @@ export default function CreateUserPage(){
                     <label className="user__label" htmlFor="username">Type your username👇 </label>
                     <input id="username" name="username" placeholder="username" className="user__input"></input>
                     {!isValid && <div className="error user__error">Please enter your username!</div>}
-                    <button className="user__btn">Create</button>
+                    <div className="user__buttons">
+                        <button className="user__btn">Create User</button>
+                        <button className="user__btn">Log In</button>
+                    </div>
+                    
                 </form>
             </section>
         </main>
