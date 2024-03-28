@@ -20,7 +20,7 @@ export default function CreateUserPage(){
             
                 localStorage.setItem("user_id", response.data.id);
                 swal("Successfully Create Username", "Go upload your resume", "success")
-                .then(navigate("/resume"));
+                    .then(navigate("/resume"));
                 
             } catch (error) {
                 console.error("Can not create user: ", error);
@@ -31,13 +31,15 @@ export default function CreateUserPage(){
         postUser();
     }
     return(
-        <section className="user">
-            <form className="user__form" onSubmit={createUser}>
-                <label className="user__label" htmlFor="username">Type your username: </label>
-                <input id="username" name="username" placeholder="username" className="user__input"></input>
-                {!isValid && <div className="error user__error">Please enter your username!</div>}
-                <button className="user__btn">Create</button>
-            </form>
-        </section>
+        <main>
+            <section className="user">
+                <form className="user__form" onSubmit={createUser}>
+                    <label className="user__label" htmlFor="username">Type your username👇 </label>
+                    <input id="username" name="username" placeholder="username" className="user__input"></input>
+                    {!isValid && <div className="error user__error">Please enter your username!</div>}
+                    <button className="user__btn">Create</button>
+                </form>
+            </section>
+        </main>
     )
 }

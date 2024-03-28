@@ -2,19 +2,28 @@
 @use "../../styles/partials/mixin.scss" as *;
 @use "../../styles/partials/variables.scss" as *;
 .user{
+    background-color: #fff;
+    height: 18rem;
+    border-radius: 10px;
+    &__form{
+        padding: 1rem
+    }
     &__label{
         @include mobile-page-header;
         @include tablet{
             @include desk-page-header;
         }
+        display: block;
+        text-align: center;
+        
     }
     &__input{
         display: block;
-        margin: 1rem 0;
+        margin: 1rem;
         height: 2.25rem;
         border-radius: 20px;
         padding: 1rem;
-        width: 100%;
+        width: calc(100% - 2rem);
         @include tablet{
             width: 21rem;
         }
@@ -25,7 +34,8 @@
     }
     &__btn{
         height: 2.25rem;
-        width: 100%;
+        width: calc(100% - 2rem);
+        margin: 1rem;
         background-color: $Button-Color;
         border-radius: 20px;
         font-size: large;
@@ -41,7 +51,9 @@
         }
     }
     &__error{
-        margin-bottom: 1rem;
+        width: calc(100% - 2rem);
+        margin: 1rem;
+        
         @include tablet{
             width: 21rem;
             margin-bottom: 0;
