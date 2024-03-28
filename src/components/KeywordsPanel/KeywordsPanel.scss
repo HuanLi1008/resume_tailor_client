@@ -22,5 +22,8 @@
         &::before{
             content: "• ";
         }
+        @include desktop{
+            width: 100%;
+        }
     }
 }

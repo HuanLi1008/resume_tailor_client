@@ -4,7 +4,7 @@ export default function DisplayResume({ data, header }) {
 
   const {name, role, phone_number, email, summary, skills, links, educations, experiences, projects} = data;
   const splitBulletPoints = (points)=>{
-    const arr = points.split("\\n");
+    const arr = points.split("\n");
     
     return arr;
   }
@@ -69,7 +69,7 @@ export default function DisplayResume({ data, header }) {
                 })}
             </div>
       </div>
-      <button className="resume__btn">Edit Resume</button>
+      {header === "my resume" && <button className="resume__btn">Edit Resume</button>}
     </section>
   );
 }
