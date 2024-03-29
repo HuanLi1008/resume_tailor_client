@@ -4,9 +4,16 @@
 .user{
     background-color: #fff;
     height: 20rem;
-    border-radius: 10px;
+    border-radius: 20px;
     max-width: 43rem;
-    margin: auto;
+    margin: 1rem auto;
+    
+    @include tablet{
+        margin: 2.25rem auto;
+    }
+    @include desktop{
+        margin: 5rem auto;
+    }
     &__form{
         padding: 1rem;
     }
