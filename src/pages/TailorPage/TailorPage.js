@@ -29,7 +29,7 @@ export default function TailorPage(){
             }
         }
         fetchResume();
-    },[])
+    })
     if(user_id === null){
         return(
             <section>

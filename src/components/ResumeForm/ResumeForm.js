@@ -43,7 +43,7 @@ export default function ResumeForm({setResumeData}){
                 experiences: experienceSection,
                 projects: projectSection,
             }
-            console.log(newResume)
+            
             try {
                 const url = process.env.REACT_APP_API_URL;
                 const user_id = localStorage.getItem("user_id");

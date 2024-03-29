@@ -8,7 +8,7 @@
 .oval{
     position: relative;
     top: 2rem;
-    left: 15vw;
+    left: calc(15vw - 1rem);
     width: 70vw;
     height: 36vw;
     background: $Light-Color;

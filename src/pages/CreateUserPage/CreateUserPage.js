@@ -1,45 +1,69 @@
 import axios from "axios";
 import "./CreateUserPage.scss";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import swal from "sweetalert";
 export default function CreateUserPage(){
-    const [isValid, setIsValid] = useState(true);
+    const [errorMessage, setErrorMessage] = useState(null);
     const navigate = useNavigate();
+    const usernameRef = useRef();
+    const url = process.env.REACT_APP_API_URL;
+
     const createUser = (e)=>{
         e.preventDefault();
-        setIsValid(true)
-        if(!e.target.username.value){
-            setIsValid(false);
+        setErrorMessage(null)
+        const username = usernameRef.current.value;
+        if(!username){
+            setErrorMessage("Please enter your username!");
             return;
         }
         const postUser = async()=>{
-            const url = process.env.REACT_APP_API_URL;
+            
             try {
-                const response = await axios.post(url + "/api/user", {username: e.target.username.value});
+                const response = await axios.post(url + "/api/user", {username: username});
             
                 localStorage.setItem("user_id", response.data.id);
-                swal("Successfully Create Username", "Go upload your resume", "success")
-                    .then(navigate("/resume"));
+                await swal("Successfully Create Username", "Go upload your resume", "success")
+                navigate("/resume");
                 
             } catch (error) {
                 console.error("Can not create user: ", error);
-                swal("Oops", "Fail to post your resume. Try again later", "error");
+                setErrorMessage(error.response.data.error.message);
             }
             
         }
         postUser();
     }
+    const login = (e)=>{
+        e.preventDefault();
+        const username = usernameRef.current.value;
+        if(!username){
+            setErrorMessage("Please enter your username!");
+            return;
+        }
+        const getUser = async()=>{
+            try {
+                const response = await axios.get(`${url}/api/user/${username}`);
+                localStorage.setItem("user_id", response.data.id);
+                await swal("Successfully Log In", "Go upload your resume", "success")
+                navigate("/resume");
+            } catch (error) {
+                console.error("Can not get user: ", error);
+                setErrorMessage(error.response.data.error.message);
+            }
+        }
+        getUser();
+    }
     return(
         <main>
             <section className="user">
-                <form className="user__form" onSubmit={createUser}>
+                <form className="user__form" >
                     <label className="user__label" htmlFor="username">Type your username👇 </label>
-                    <input id="username" name="username" placeholder="username" className="user__input"></input>
-                    {!isValid && <div className="error user__error">Please enter your username!</div>}
+                    <input ref={usernameRef} id="username" name="username" placeholder="username" className="user__input"></input>
+                    {errorMessage && <div className="error user__error">{errorMessage}</div>}
                     <div className="user__buttons">
-                        <button className="user__btn">Create User</button>
-                        <button className="user__btn">Log In</button>
+                        <button className="user__btn" onClick={createUser}>Create User</button>
+                        <button className="user__btn" onClick={login}>Log In</button>
                     </div>
                     
                 </form>
