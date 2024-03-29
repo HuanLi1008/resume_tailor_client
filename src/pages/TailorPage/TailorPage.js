@@ -5,10 +5,12 @@ import JDinput from "../../components/JDinput/JDinput";
 
 import { Link } from "react-router-dom";
 import axios from "axios";
+import JDdisplay from "../../components/JDdisplay/JDdisplay";
 export default function TailorPage(){
     const [tailoring, setTailoring] = useState(false);
     const [hasResume, setHasResume] = useState(false);
     const [tailoredData, setTailoredData] = useState(null);
+    const [jd, setJd] = useState(null);
 
     const user_id = localStorage.getItem("user_id");
     
@@ -53,7 +55,7 @@ export default function TailorPage(){
             try {
                 
                 const response = await axios.post(`${url}/api/tailor/${user_id}`, {"jd": e.target.jd.value});
-                
+                setJd(e.target.jd.value);
                 setTailoredData(response.data);
                 setTailoring(true);
             } catch (error) {
@@ -70,6 +72,7 @@ export default function TailorPage(){
                 {!tailoring && <JDinput handleSubmit={handleSubmit}/>}
                 {tailoring && 
                     <section>
+                        <JDdisplay jd={jd}/>
                         <KeywordsPanel keywords={tailoredData.keywords}/>
                         <hr className="tailor__divid-bar"/>
                         <iframe src={url + tailoredData.resumePath} title="my tailored resume"></iframe>
