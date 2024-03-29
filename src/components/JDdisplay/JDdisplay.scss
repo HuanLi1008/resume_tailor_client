@@ -1,0 +1,17 @@
+@use "../../styles/partials/media.scss" as *;
+
+.jd{
+    &__title{
+        font-size: large;
+        text-align: center;
+    }
+    &__body{
+        background-color: whitesmoke;
+        width: 70%;
+        padding: 1rem;
+        margin: 1rem auto;
+        
+        border-radius: 20px;
+        border: 1px solid black;
+    }
+}

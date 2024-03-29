@@ -68,14 +68,16 @@ export default function TailorPage(){
     return(
         <main className="tailor">
             <h1 className="tailor__title">Let's Tailor your Resume</h1>
-            <div className={tailoring ? "tailor__body--wide" : "tailor__body"}>
+            <div className="tailor__body">
                 {!tailoring && <JDinput handleSubmit={handleSubmit}/>}
                 {tailoring && 
-                    <section>
-                        <JDdisplay jd={jd}/>
-                        <KeywordsPanel keywords={tailoredData.keywords}/>
+                    <section className="tailor__content">
+                        <div className="tailor__content--left">
+                            <JDdisplay jd={jd}/>
+                            <KeywordsPanel keywords={tailoredData.keywords}/>
+                        </div>
                         <hr className="tailor__divid-bar"/>
-                        <iframe src={url + tailoredData.resumePath} title="my tailored resume"></iframe>
+                        <iframe className="tailor__content--right" src={url + tailoredData.resumePath} title="my tailored resume"></iframe>
                     </section>
                 }
                
