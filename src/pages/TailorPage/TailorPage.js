@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./TailorPage.scss";
 import KeywordsPanel from "../../components/KeywordsPanel/KeywordsPanel";
 import JDinput from "../../components/JDinput/JDinput";
-import DisplayResume from "../../components/DisplayResume/DisplayResume";
+
 import { Link } from "react-router-dom";
 import axios from "axios";
 export default function TailorPage(){
@@ -67,9 +67,15 @@ export default function TailorPage(){
         <main className="tailor">
             <h1 className="tailor__title">Let's Tailor your Resume</h1>
             <div className={tailoring ? "tailor__body--wide" : "tailor__body"}>
-                {tailoring ? <KeywordsPanel keywords={tailoredData.keywords}/> : <JDinput handleSubmit={handleSubmit}/>}
-                {tailoring && <hr className="tailor__divid-bar"/>}
-                {tailoring && <DisplayResume data={tailoredData.resume} header={"Tailored Resume"}/>}
+                {!tailoring && <JDinput handleSubmit={handleSubmit}/>}
+                {tailoring && 
+                    <section>
+                        <KeywordsPanel keywords={tailoredData.keywords}/>
+                        <hr className="tailor__divid-bar"/>
+                        <iframe src={url + tailoredData.resumePath} title="my tailored resume"></iframe>
+                    </section>
+                }
+               
             </div>
         </main>
     )
