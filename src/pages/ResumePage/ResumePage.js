@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
 import "./ResumePage.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import ResumeForm from "../../components/ResumeForm/ResumeForm";
 import DisplayResume from "../../components/DisplayResume/DisplayResume";
+import { UserContext } from '../../App';
 export default function ResumePage(){
     const [resumedata, setResumedata] = useState(null);
-    const user_id = localStorage.getItem("user_id");
+    const {session} = useContext(UserContext);
+    
     
     useEffect(()=>{
-        if(!user_id) return;
+        if(!session) return;
         const fetchResume = async()=>{
             const url = process.env.REACT_APP_API_URL;
             try {
@@ -25,14 +27,15 @@ export default function ResumePage(){
         }
         fetchResume();
     })
-    if(user_id === null){
+    if(!session){
         return(
             <section>
-                <h1>You have to create a username first!</h1>
-                <Link className="error" to={"/user"}>Clieck Here to Create a Username</Link>
+                <h1>You have to log in first!</h1>
+                <Link className="error" to={"/login"}>Clieck Here to log in</Link>
             </section>
         )
     }
+    const user_id = session.user.id;
     if(!resumedata){
         return( 
             <main>
@@ -42,7 +45,7 @@ export default function ResumePage(){
     }else{
         return(
             <main>
-                <DisplayResume data={resumedata} header={"my resume"}/>
+                <DisplayResume data={resumedata}/>
             </main>
         ) 
     }

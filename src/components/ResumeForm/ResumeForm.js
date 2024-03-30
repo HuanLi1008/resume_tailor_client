@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./ResumeForm.scss";
 import axios from "axios";
 import swal from "sweetalert";
+import { UserContext } from "../../App";
 
 
 export default function ResumeForm({setResumeData}){
@@ -9,7 +10,8 @@ export default function ResumeForm({setResumeData}){
     const [educationSection, setEducationSection] = useState([{"title": "", "subtitle": ""}]);
     const [experienceSection, setExperienceSection] = useState([{"title": "", "subtitle": "", "bullet_points": ""}]);
     const [projectSection, setProjectSection] = useState([{"title": "", "subtitle": "", "bullet_points": ""}]);
-    
+    const {session} = useContext(UserContext);
+    const user_id = session.user.id;
     const handleAdd = (category, arr, setarr)=>{
         let newItem = {};
         if(category === "link"){
@@ -46,7 +48,7 @@ export default function ResumeForm({setResumeData}){
             
             try {
                 const url = process.env.REACT_APP_API_URL;
-                const user_id = localStorage.getItem("user_id");
+                
                 const response = await axios.post(`${url}/api/resume/${user_id}`, newResume);
                 console.log(response.data);
                 swal("Successfully Upload", "Let's see your resume", "success")
