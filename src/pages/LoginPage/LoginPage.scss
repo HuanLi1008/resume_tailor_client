@@ -1,4 +1,24 @@
-
+@use "../../styles/partials/media.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
 .login{
     background-color: whitesmoke;
+    
+    border-radius: 20px;
+    width: 50vw;
+    min-width: 20rem;
+    max-width: 25rem;
+    margin: 1rem auto;
+    padding: 1rem;
+    
+    @include tablet{
+        margin: 2.25rem auto;
+    }
+    &__title{
+        text-align: center;
+    }
+    &__link{
+        display: block;
+        text-align: center;
+        color: $Button-Color;
+    }
 }
