@@ -2,12 +2,13 @@
 @use "../../styles/partials/media.scss" as *;
 @use "../../styles/partials/mixin.scss" as *;
 .job-description{
-    padding: 0 1rem;
+    padding: 1rem;
+    
     @include tablet{
-        padding: 0 2.25rem;
+        padding: 1rem 2.25rem;
     }
     @include desktop{
-        padding: 0 4rem;
+        padding: 1rem 4rem;
     }
     &__title{
         font-size: large;
@@ -20,7 +21,7 @@
         height: 8rem;
         margin: 1rem auto;
         padding: 1rem;
-        border-radius: 10px;
+        border-radius: 20px;
         @include tablet{
             
             width: 70%;

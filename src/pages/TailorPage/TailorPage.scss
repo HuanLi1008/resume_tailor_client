@@ -3,7 +3,7 @@
 .tailor{
     background-color: $Light-Color;
     margin-top: 0;
-    
+    border-radius: 20px;
     &__title{
         margin: 0;
         padding: 1rem;
@@ -15,6 +15,7 @@
             padding: 1rem 4rem;
         }
     }
+    
     &__content{
         padding-bottom: 1rem;
         
