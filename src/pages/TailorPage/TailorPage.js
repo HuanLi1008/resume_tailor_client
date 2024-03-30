@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "./TailorPage.scss";
 import KeywordsPanel from "../../components/KeywordsPanel/KeywordsPanel";
 import JDinput from "../../components/JDinput/JDinput";
@@ -6,17 +6,18 @@ import JDinput from "../../components/JDinput/JDinput";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import JDdisplay from "../../components/JDdisplay/JDdisplay";
+import { UserContext } from "../../App";
 export default function TailorPage(){
     const [tailoring, setTailoring] = useState(false);
     const [hasResume, setHasResume] = useState(false);
     const [tailoredData, setTailoredData] = useState(null);
     const [jd, setJd] = useState(null);
-
-    const user_id = localStorage.getItem("user_id");
+    const {session} = useContext(UserContext);
+    const user_id = session?.user.id;
     
     const url = process.env.REACT_APP_API_URL;
     useEffect(()=>{
-        if(!user_id) return;
+        if(!session) return;
         const fetchResume = async()=>{
             
             try {
@@ -32,11 +33,11 @@ export default function TailorPage(){
         }
         fetchResume();
     })
-    if(user_id === null){
+    if(!session){
         return(
-            <section>
-                <h1>You have to create a username first!</h1>
-                <Link className="error" to={"/user"}>Clieck Here to Create a Username</Link>
+            <section className="login">
+                <h1 className="login__title">Please log in first!</h1>
+                <Link className="error login__link" to={"/login"}>Clieck here to log in or sign up</Link>
             </section>
         )
     }

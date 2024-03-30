@@ -29,9 +29,9 @@ export default function ResumePage(){
     })
     if(!session){
         return(
-            <section>
-                <h1>You have to log in first!</h1>
-                <Link className="error" to={"/login"}>Clieck Here to log in</Link>
+            <section className="login">
+                <h1 className="login__title">Please log in first!</h1>
+                <Link className="error login__link" to={"/login"}>Clieck here to log in or sign up</Link>
             </section>
         )
     }
