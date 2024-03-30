@@ -7,7 +7,7 @@ export default function LandingPage(){
                 <h1 className="oval__title"> Welcom to Resume Tailor</h1>
             </div>
             <div className="pointer">
-                <div className="pointer__item"><Link className="pointer__item--content" to={"/user"}>Create Account</Link></div>
+                <div className="pointer__item"><Link className="pointer__item--content" to={"/login"}>Create Account</Link></div>
                 <div className="pointer__item"><Link className="pointer__item--content" to={"/resume"}>Upload Resume</Link></div>
                 <div className="pointer__item"><Link className="pointer__item--content" to={"/tailor"}>Tailor Resume</Link></div>
             </div>
