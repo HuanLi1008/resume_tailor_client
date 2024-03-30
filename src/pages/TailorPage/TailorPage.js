@@ -73,8 +73,9 @@ export default function TailorPage(){
                 {tailoring && 
                     <section className="tailor__content">
                         <div className="tailor__content--left">
-                            <JDdisplay jd={jd}/>
+                            
                             <KeywordsPanel keywords={tailoredData.keywords}/>
+                            <JDdisplay jd={jd}/>
                         </div>
                         <hr className="tailor__divid-bar"/>
                         <iframe className="tailor__content--right" src={url + tailoredData.resumePath} title="my tailored resume"></iframe>
