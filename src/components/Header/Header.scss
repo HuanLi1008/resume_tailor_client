@@ -35,16 +35,19 @@
         display: flex;
         justify-content: space-between;
         @include tablet{
-            width: 20rem;
+            
+            width: 50%;
+            max-width: 27.5rem;
         }
         &--body{
             background-color: $Light-Color;
-            width: 45%;
+            width: 30%;
             height: 2rem;
             text-decoration: none;
             color: black;
             border-radius: 20px;
             padding-top: 0.5rem;
+            cursor: pointer;
             &:hover{
                 background-color: $Button-Color;
             }

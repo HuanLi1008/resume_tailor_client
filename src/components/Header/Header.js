@@ -20,7 +20,7 @@ export default function Header({client}){
                 <NavLink className="nav-bar__link--body" to={"/resume"}>My Resume</NavLink>
                 <NavLink className="nav-bar__link--body" to={"/tailor"}>My Tailor</NavLink>
                 {
-                    session?<button className="nav-bar__link--body" onClick={handleLogOut}>Log Out</button>
+                    session?<div className="nav-bar__link--body" onClick={handleLogOut}>Log Out</div>
                      :<NavLink className="nav-bar__link--body" to={"/login"}>Log In</NavLink>
                 }
             </div>
