@@ -2,7 +2,10 @@ import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
 import "./LoginPage.scss";
 import { Link } from 'react-router-dom';
-export default function LoginPage({client, session}){
+import { UserContext } from '../../App';
+import { useContext } from 'react';
+export default function LoginPage({client}){
+    const {session} = useContext(UserContext);
     if(session){
         return(
             <main className='login'>

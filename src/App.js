@@ -39,7 +39,7 @@ function App() {
           <Header client={supabase}/>
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path='/login' element={<LoginPage client={supabase} session={session}/>}/>
+            <Route path='/login' element={<LoginPage client={supabase}/>}/>
             
             <Route path="/resume" element={<ResumePage />} />
             <Route path='/tailor' element={<TailorPage />}/>
