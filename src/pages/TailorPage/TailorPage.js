@@ -68,7 +68,7 @@ export default function TailorPage(){
 
     return(
         <main className="tailor">
-            <h1 className="tailor__title">Let's Tailor your Resume</h1>
+            <h1 className="tailor__title">{!tailoring? "Let's Tailor your Resume" : "Tailored Resume"}</h1>
             <div className="tailor__body">
                 {!tailoring && <JDinput handleSubmit={handleSubmit}/>}
                 {tailoring && 
