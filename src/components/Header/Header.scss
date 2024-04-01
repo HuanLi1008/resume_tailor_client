@@ -2,6 +2,17 @@
 @use "../../styles/partials/mixin.scss" as *;
 @use "../../styles/partials/media.scss" as *;
 
+@keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 .nav-bar{
     background-color: $Dark-Color;
     height: 15rem;
@@ -10,6 +21,9 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    background: linear-gradient(300deg, $Primary-Color,$Button-Color, $Dark-Color);
+    
+    animation: gradient-animation 18s ease infinite;
     @include tablet{
         padding: 0 2.25rem;
     }
