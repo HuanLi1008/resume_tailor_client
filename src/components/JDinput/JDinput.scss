@@ -33,6 +33,16 @@
             height: calc(24vw - 1.2rem);
         }
     }
+    &__error{
+        margin: 1rem auto;
+        padding: 1rem;
+        @include tablet{
+            width: 70%
+        }
+        @include desktop{
+            width: 80%;
+        }
+    }
     &__btn{
         @include button-effect;
         display: block;

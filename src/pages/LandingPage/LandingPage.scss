@@ -29,7 +29,7 @@
         left: 15vw;
         @include tablet{
             top: 15vw;
-            left: 20%;
+            left: 13%;
         }
         @include desktop{
             top: 10rem;
@@ -64,8 +64,10 @@
         }
         &:hover{
             background-color: $Button-Color;
+            
             &::before{
                 border-left-color: $Button-Color;
+               
             }
         }
         &::after{
