@@ -1,0 +1,103 @@
+{
+    "id": 16,
+    "user_id": "6f8c79c8-4e96-4ff9-8037-e5aee82579f2",
+    "name": "Huan Li",
+    "role": "SOFTWARE DEVELOPER",
+    "phone_number": "2892539916",
+    "email": "huanli01008@gmail.com",
+    "summary": "Computer Science student passionate about full stack development with hands-on experience in JavaScript. Specializing in React and Node.js and likes building scalable web infrastructure. Keen problem solver with an ability to learn quickly.",
+    "skills": "Python, Java, JavaScript, Flask, Node.js, Express.js, MySQL, MongoDB, PostgreSQL,  HTML, CSS, Sass, React,  RabbitMQ, Docker, Data Structure,  Algorithm, Git",
+    "links": [
+        {
+            "id": 31,
+            "resume_id": 16,
+            "link": "https://github.com/HuanLi1008",
+            "created_at": "2024-03-27T23:57:11.000Z"
+        },
+        {
+            "id": 32,
+            "resume_id": 16,
+            "link": "https://www.linkedin.com/in/huanli1008/",
+            "created_at": "2024-03-27T23:57:11.000Z"
+        }
+    ],
+    "educations": [
+        {
+            "id": 31,
+            "resume_id": 16,
+            "title": "BrainStation  |  Diploma, Software Engineering",
+            "subtitle": "JAN  2024 - APR  2024, NEW YORK, NY, USA",
+            "created_at": "2024-03-27T23:57:11.000Z"
+        },
+        {
+            "id": 32,
+            "resume_id": 16,
+            "title": "University of Colorado Boulder  |   Master of Science in Computer Science",
+            "subtitle": "Aug 2023 - June 2025(Expected), Boulder,  CO, USA",
+            "created_at": "2024-03-27T23:57:11.000Z"
+        }
+    ],
+    "experiences": [
+        {
+            "id": 36,
+            "resume_id": 16,
+            "title": "Resume Worded, London, United Kingdom",
+            "subtitle": "Senior Software Engineer 08/2021 – Present",
+            "bullet_points": "● Spearheaded a digital card API in NodeJS that creates digital walled passes for 2000+ clients and keeps track of usage. \n● Conducted robotics and computer science seminars for 430+ high-performing and low-income students in the first month. \n● Managed a 10-person team that designed a human body recognition software leveraging multi-depth sensors with proprietary computer vision. \n● Created an automated test framework for RW's web service endpoints, which accounts for 1500+ automated tests across 60+ individual REST endpoints.",
+            "created_at": "2024-03-27T23:57:11.000Z"
+        },
+        {
+            "id": 37,
+            "resume_id": 16,
+            "title": "Polyhire, London, United Kingdom",
+            "subtitle": "IT Development Manager 10/2019 – 07/2021",
+            "bullet_points": "● Supervised a software project upgrade with 780K lines of code, improving a flagship product's performance by 70%. \n● Relocated business operations to a web-based platform, reducing infrastructure costs to $1.50 per user and saving the company $57K annually. \n● Developed innovative systems by mentoring project managers, developers, QA specialists, and 10+ cross-functional teams. \n● Resolved the issues of 700+ clients about roadblocks with the company's software products, improving customer satisfaction by 45%.",
+            "created_at": "2024-03-27T23:57:11.000Z"
+        },
+        {
+            "id": 38,
+            "resume_id": 16,
+            "title": "Growthsi, London, United Kingdom & Barcelona, Spain",
+            "subtitle": "Technical Support Engineer 11/2018 – 09/2019",
+            "bullet_points": "● Identified patterns in customer complaints by keeping accurate records of technical support issues, helping to generate 50+ solutions for future improvements. \n● Developed a Standard Operating Procedure (SOP) for PC repair in the IT department, reducing downtime by 84%. \n● Assisted 450+ clients in solving computer hardware, software, and network-related issues in the first month of employment. \n● Fixed a networking problem by utilizing 20+ built-in diagnostic tools for port diagnostics and analyzing fragmented signals via an oscilloscope.",
+            "created_at": "2024-03-27T23:57:11.000Z"
+        }
+    ],
+    "projects": [
+        {
+            "id": 45,
+            "resume_id": 16,
+            "title": "Independent Devolper | Resume Tailor",
+            "subtitle": "Match  2024, BrainStation",
+            "bullet_points": "● Developed a web application enabling users to customize their resumes based on keywords extracted from job descriptions. \n● Utilized React, HTML, CSS, and Sass to create a responsive front-end, enhancing user experience across all screen sizes.  \n● Implemented a RESTful API using Node.js and Express.js to enable core application functionality. \n● Employed MySQL database management system for persistent data storage, utilizing Knex for seamless SQL query generation, including migration, seeding, and CRUD operations.",
+            "created_at": "2024-03-27T23:57:11.000Z"
+        },
+        {
+            "id": 46,
+            "resume_id": 16,
+            "title": "Independent Developer| Currency Exchange",
+            "subtitle": "Dec  2023, SCHOOL https://currency-exchange-rate-v1.onrender.com/",
+            "bullet_points": "● Developed a user-friendly front-end webpage using HTML, CSS, and Bootstrap to enhance the overall user experience. \n● Implemented a robust back-end in Python to collect comprehensive currency exchange rate data over a specified period from a public API. \n● Employed data analysis techniques to draw insightful line charts, effectively illustrating changing trends in currency exchange rates. \n● Integrated the front-end and back-end seamlessly using Flask, and implemented automated testing using pytest for all components, ensuring a smooth Continuous Integration (CI) process.",
+            "created_at": "2024-03-27T23:57:11.000Z"
+        },
+        {
+            "id": 47,
+            "resume_id": 16,
+            "title": "Code Optimization via Bug Fixing",
+            "subtitle": "May 2009",
+            "bullet_points": "● Designed a tool that resolves 95% of customer issues through troubleshooting and bug fixing. \n● Examined how the performance of 20+ software products can be improved via code optimization and bug fixes.",
+            "created_at": "2024-03-27T23:57:11.000Z"
+        },
+        {
+            "id": 48,
+            "resume_id": 16,
+            "title": "Improving Workflow and Customer Relationships",
+            "subtitle": "April 2009",
+            "bullet_points": "● Designed a manual that improves departmental workflow and output by 89%. \n● Assessed how chronic service quality complaints were resolved within 24 hours using technical expertise in selected companies.",
+            "created_at": "2024-03-27T23:57:11.000Z"
+        }
+    ],
+    
+    "jd":"Bachelor's degree in Computer Science, Engineering, or a related field. Minimum 5 years of proven experience as a Full Stack Developer or similar role. Expertise in PHP, with hands-on experience in Laravel framework. Proficiency in front-end technologies such as HTML,CSS, JavaScript, and Vue.js. Experience with database systems such as MySQL. Familiarity with version control systems (e.g., Git/GitLab) and Docker. Solid understanding of software development lifecycle and Agile methodologies. Excellent problem-solving and communication skills. Ability to work independently and collaboratively in a fast-paced environment."
+
+}

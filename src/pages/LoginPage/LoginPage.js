@@ -35,7 +35,7 @@ export default function LoginPage({client}){
                         }
                     }
                 }}
-                providers={['google', 'github', 'linkedin']}
+                providers={['google', 'github', 'linkedin_oidc']}
                 
             />
         </main>

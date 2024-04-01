@@ -17,6 +17,7 @@ export default function ResumePage(){
             try {
                 const response = await axios.get(url+"/api/resume/" + user_id);
                 if(response.data.message !== "no resume"){
+                    
                     setResumedata(response.data);
                 }else{
                     setResumedata(null);
