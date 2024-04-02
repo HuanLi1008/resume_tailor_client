@@ -8,7 +8,7 @@ import { UserContext } from '../../App';
 export default function ResumePage(){
     const [resumedata, setResumedata] = useState(null);
     const {session} = useContext(UserContext);
-    
+    const [editing, setEditing] = useState(false);
     
     useEffect(()=>{
         if(!session) return;
@@ -37,6 +37,11 @@ export default function ResumePage(){
         )
     }
     const user_id = session.user.id;
+
+    const handleEdit = ()=>{
+        setEditing(true);
+    }
+
     if(!resumedata){
         return( 
             <main>
@@ -46,7 +51,7 @@ export default function ResumePage(){
     }else{
         return(
             <main>
-                <DisplayResume data={resumedata}/>
+                {editing? <ResumeForm data={resumedata} setResumeData={setResumedata}/>: <DisplayResume data={resumedata} handleEdit={handleEdit}/>}
             </main>
         ) 
     }

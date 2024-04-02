@@ -1,6 +1,6 @@
 import "./DisplayResume.scss";
 
-export default function DisplayResume({ data}) {
+export default function DisplayResume({ data, handleEdit}) {
 
   const {name, role, phone_number, email, summary, skills, links, educations, experiences, projects} = data;
   const splitBulletPoints = (points)=>{
@@ -8,6 +8,7 @@ export default function DisplayResume({ data}) {
     
     return arr;
   }
+  
   return (
     <section className="resume">
       <h1 className="resume__title resume__title--page"> My Resume</h1>
@@ -69,7 +70,7 @@ export default function DisplayResume({ data}) {
                 })}
             </div>
       </div>
-      <button className="resume__btn">Edit Resume</button>
+      <button className="resume__btn" onClick={handleEdit}>Edit Resume</button>
     </section>
   );
 }

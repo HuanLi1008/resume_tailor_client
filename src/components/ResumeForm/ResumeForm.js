@@ -5,11 +5,11 @@ import swal from "sweetalert";
 import { UserContext } from "../../App";
 
 
-export default function ResumeForm({setResumeData}){
-    const [linkSection, setLinkSection] = useState([{"link": ""}]);
-    const [educationSection, setEducationSection] = useState([{"title": "", "subtitle": ""}]);
-    const [experienceSection, setExperienceSection] = useState([{"title": "", "subtitle": "", "bullet_points": ""}]);
-    const [projectSection, setProjectSection] = useState([{"title": "", "subtitle": "", "bullet_points": ""}]);
+export default function ResumeForm({data, setResumeData}){
+    const [linkSection, setLinkSection] = useState(data? data.links: [{"link": ""}]);
+    const [educationSection, setEducationSection] = useState(data? data.educations: [{"title": "", "subtitle": ""}]);
+    const [experienceSection, setExperienceSection] = useState(data? data.experiences: [{"title": "", "subtitle": "", "bullet_points": ""}]);
+    const [projectSection, setProjectSection] = useState(data? data.projects: [{"title": "", "subtitle": "", "bullet_points": ""}]);
     const {session} = useContext(UserContext);
     const user_id = session.user.id;
     const handleAdd = (category, arr, setarr)=>{
@@ -50,7 +50,7 @@ export default function ResumeForm({setResumeData}){
                 const url = process.env.REACT_APP_API_URL;
                 
                 const response = await axios.post(`${url}/api/resume/${user_id}`, newResume);
-                console.log(response.data);
+                
                 swal("Successfully Upload", "Let's see your resume", "success")
                 .then(()=> setResumeData(response.data));
                 
@@ -71,21 +71,21 @@ export default function ResumeForm({setResumeData}){
                     <div className="resume-form__row">
                         <label className="resume-form__label">
                             name: 
-                            <input id="name" name="name" placeholder="name" type="text" className="resume-form__input" required/>
+                            <input id="name" name="name" defaultValue={data? data.name: ""} placeholder="name" type="text" className="resume-form__input" required/>
                         </label>
                         <label className="resume-form__label">
                             role: 
-                            <input id="role" name="role" placeholder="role" type="text" className="resume-form__input" required/>
+                            <input id="role" name="role" defaultValue={data? data.role: ""} placeholder="role" type="text" className="resume-form__input" required/>
                         </label>
                     </div>
                     <div className="resume-form__row">
                         <label className="resume-form__label">
                             Phone Number: 
-                            <input id="phone_number" name="phone_number" placeholder="phone_number" type="tel" className="resume-form__input" required/>
+                            <input id="phone_number" name="phone_number" defaultValue={data? data.phone_number: ""} placeholder="phone_number" type="tel" className="resume-form__input" required/>
                         </label>
                         <label className="resume-form__label">
                             email: 
-                            <input id="email" name="email" placeholder="123@example.com" type="email" className="resume-form__input" required/>
+                            <input id="email" name="email" defaultValue={data? data.email: ""} placeholder="123@example.com" type="email" className="resume-form__input" required/>
                         </label>
                     </div>
                     <div className="resume-form__link">
@@ -104,11 +104,11 @@ export default function ResumeForm({setResumeData}){
                     </div>
                     <label className="resume-form__label resume-form__label--large">
                             Summary: 
-                        <textarea id="summary" name="summary" placeholder="summary"  className="resume-form__input resume-form__input--large" required/>
+                        <textarea id="summary" name="summary" defaultValue={data? data.summary: ""} placeholder="summary"  className="resume-form__input resume-form__input--large" required/>
                     </label>
                     <label className="resume-form__label resume-form__label--large">
                             skills: 
-                        <textarea id="skills" name="skills" placeholder="skills"  className="resume-form__input resume-form__input--large" required/>
+                        <textarea id="skills" name="skills" defaultValue={data? data.skills: ""} placeholder="skills"  className="resume-form__input resume-form__input--large" required/>
                     </label>
                 </div>
                 <div className="resume-form__education">
