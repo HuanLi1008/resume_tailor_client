@@ -5,7 +5,7 @@ import swal from "sweetalert";
 import { UserContext } from "../../App";
 
 
-export default function ResumeForm({data, setResumeData}){
+export default function ResumeForm({data, setResumeData, setEditing}){
     const [linkSection, setLinkSection] = useState(data? data.links: [{"link": ""}]);
     const [educationSection, setEducationSection] = useState(data? data.educations: [{"title": "", "subtitle": ""}]);
     const [experienceSection, setExperienceSection] = useState(data? data.experiences: [{"title": "", "subtitle": "", "bullet_points": ""}]);
@@ -40,19 +40,26 @@ export default function ResumeForm({data, setResumeData}){
                 email: email.value,
                 summary: summary.value,
                 skills: skills.value,
-                links: linkSection,
-                educations: educationSection,
-                experiences: experienceSection,
-                projects: projectSection,
+                links: linkSection.map(item => {return {"link": item.link}}),
+                educations: educationSection.map(item => {return {"title": item.title, "subtitle": item.subtitle}}),
+                experiences: experienceSection.map(item => {return {"title": item.title, "subtitle": item.subtitle, "bullet_points": item.bullet_points}}),
+                projects: projectSection.map(item => {return {"title": item.title, "subtitle": item.subtitle, "bullet_points": item.bullet_points}}),
             }
             
             try {
                 const url = process.env.REACT_APP_API_URL;
                 
-                const response = await axios.post(`${url}/api/resume/${user_id}`, newResume);
-                
+                let response;
+                if(data){
+                    response = await axios.put(`${url}/api/resume/${user_id}`, newResume);
+                }else{
+                    response = await axios.post(`${url}/api/resume/${user_id}`, newResume);
+                }
                 swal("Successfully Upload", "Let's see your resume", "success")
-                .then(()=> setResumeData(response.data));
+                .then(()=> {
+                    setResumeData(response.data);
+                    setEditing(false);
+                });
                 
             } catch (error) {
                 console.log("Can not post resume: ", error);

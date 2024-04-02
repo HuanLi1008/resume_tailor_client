@@ -39,6 +39,7 @@ export default function ResumePage(){
     const user_id = session.user.id;
 
     const handleEdit = ()=>{
+        
         setEditing(true);
     }
 
@@ -51,7 +52,8 @@ export default function ResumePage(){
     }else{
         return(
             <main>
-                {editing? <ResumeForm data={resumedata} setResumeData={setResumedata}/>: <DisplayResume data={resumedata} handleEdit={handleEdit}/>}
+                {editing? <ResumeForm data={resumedata} setResumeData={setResumedata} setEditing={setEditing}/>
+                : <DisplayResume data={resumedata} handleEdit={handleEdit}/>}
             </main>
         ) 
     }
