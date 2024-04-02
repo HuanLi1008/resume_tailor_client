@@ -23,7 +23,7 @@ All job seekers.
 
 ### Development
 1. run command `git clone https://github.com/HuanLi1008/resume_tailor_client.git` to clone the git repo
-2. run `npm i` ti install all dependencies
+2. run `npm i` to install all dependencies
 3. create a local .env file similar with .env.sample
 4. set up a supabase project and put supabase url and supabase api_key in the .env file
 5. make sure resume tailor server is running
